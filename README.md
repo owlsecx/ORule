@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Forensics-grade firewall monitoring & diffing
+ORule is a forensics-grade firewall rule change auditor. It captures a baseline of nftables, iptables, ip6tables or ufw rules and diffs the live configuration against it, scoring changes by risk and recording a JSONL timeline. It supports continuous monitoring, tamper detection and syslog export.
 
 ---
 
 ## ✨ Features
 
-- Firewall rule change auditor and diff engine — nft/iptables/ufw
+- Supports nftables, iptables, ip6tables and ufw engines (auto-detected)
+- Baseline creation, refresh and diffing against the live ruleset
+- Risk scoring with a configurable minimum display level
+- Continuous monitoring with a configurable interval and tamper detection
+- JSONL timeline, snapshot rotation and snapshot-to-snapshot diffing
+- CSV/HTML export, syslog forwarding and a high-risk open-port scan
 
 ---
 
@@ -38,7 +43,10 @@ Forensics-grade firewall monitoring & diffing
 ## 🚀 Usage
 
 ```bash
-./ORule
+./ORule --audit
+./ORule --baseline
+./ORule --watch 60 --risk HIGH
+./ORule --help
 ```
 
 ---
